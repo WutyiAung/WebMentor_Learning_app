@@ -1,4 +1,4 @@
-{{-- <!-- resources/views/blogs/index.blade.php -->
+<!-- resources/views/blogs/index.blade.php -->
 <x-admin-layout>
     <main>
         <div class="container-fluid px-4">
@@ -70,4 +70,4 @@
             return confirm('Are you sure you want to delete this blog?');
         }
     </script>
-</x-admin-layout> --}}
+</x-admin-layout>

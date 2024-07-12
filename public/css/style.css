@@ -6,15 +6,21 @@
     --dark: #181d38;
 } */
 :root {
-    --primary: #4169E1;          /* Royal Blue for primary elements */
-    --secondary: #50d2f6;        /* Bright Blue for accents */
-    --light: #F0FBFC;            /* Light background */
-    --secondary-light: #f0e4de;  /* Secondary light background */
-    --dark: #002147;             /* Navy Blue for dark elements */
-    --accent: #00FF00;           /* Green for buttons and highlights */
-    --text-dark: #181d38;        /* Dark text color */
+    --primary: #4169e1;
+    /* Royal Blue for primary elements */
+    --secondary: #50d2f6;
+    /* Bright Blue for accents */
+    --light: #f0fbfc;
+    /* Light background */
+    --secondary-light: #f0e4de;
+    /* Secondary light background */
+    --dark: #002147;
+    /* Navy Blue for dark elements */
+    --accent: #00ff00;
+    /* Green for buttons and highlights */
+    --text-dark: #181d38;
+    /* Dark text color */
 }
-
 
 .btn {
     background-color: var(--primary);
@@ -62,32 +68,30 @@
     z-index: 99;
 }
 
-
 /*** Spinner ***/
 #spinner {
     opacity: 0;
     visibility: hidden;
-    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
     z-index: 99999;
 }
 
 #spinner.show {
-    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    transition: opacity 0.5s ease-out, visibility 0s linear 0s;
     visibility: visible;
     opacity: 1;
 }
 
-
 /*** Button ***/
 .btn {
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
     font-weight: 600;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .btn.btn-primary,
 .btn.btn-secondary {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .btn-square {
@@ -116,7 +120,6 @@
     border-radius: 0px;
 }
 
-
 /*** Navbar ***/
 .navbar .dropdown-toggle::after {
     border: none;
@@ -131,7 +134,7 @@
 .navbar-light .navbar-nav .nav-link {
     margin-right: 30px;
     padding: 25px 0;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 15px;
     text-transform: uppercase;
     outline: none;
@@ -149,7 +152,7 @@
     }
 
     .navbar-light .navbar-nav {
-        border-top: 1px solid #EEEEEE;
+        border-top: 1px solid #eeeeee;
     }
 }
 
@@ -165,7 +168,7 @@
 
 .navbar-light.sticky-top {
     top: -100px;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .navbar-toggler-icon {
@@ -182,7 +185,7 @@
         margin-top: 0;
         opacity: 0;
         visibility: hidden;
-        transition: .5s;
+        transition: 0.5s;
     }
 
     .navbar .dropdown-menu.fade-down {
@@ -195,7 +198,7 @@
         top: 100%;
         transform: rotateX(0deg);
         visibility: visible;
-        transition: .5s;
+        transition: 0.5s;
         opacity: 1;
     }
 }
@@ -242,7 +245,6 @@
 }
 
 @media (max-width: 430px) {
-
     .header-carousel .owl-carousel-item {
         position: relative;
         height: 500px;
@@ -284,11 +286,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFFFFF;
+    color: #ffffff;
     background: transparent;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #ffffff;
     font-size: 22px;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .header-carousel .owl-nav .owl-prev:hover,
@@ -298,20 +300,20 @@
 }
 
 .page-header {
-    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(../img/carousel-1.jpg);
+    background: linear-gradient(rgba(24, 29, 56, 0.7), rgba(24, 29, 56, 0.7)),
+        url(../img/carousel-1.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .page-header-inner {
-    background: rgba(15, 23, 43, .7);
+    background: rgba(15, 23, 43, 0.7);
 }
 
 .breadcrumb-item+.breadcrumb-item::before {
     color: var(--light);
 }
-
 
 /*** Section Title ***/
 .section-title {
@@ -352,12 +354,10 @@
     left: 0;
 }
 
-
 /*** Service ***/
 .service-item {
-    transition: .5s;
+    transition: 0.5s;
 }
-
 
 .service-item i {
     color: var(--primary);
@@ -369,7 +369,7 @@
 }
 
 .service-item * {
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .service-item:hover * {
@@ -386,7 +386,7 @@
 
 .category .content {
     cursor: pointer;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .category .content:hover {
@@ -411,7 +411,7 @@
 
 .category img,
 .course-item img {
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .category a:hover img,
@@ -420,16 +420,14 @@
     margin-top: -10px;
 }
 
-
 /*** Team ***/
 .team-item img {
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .team-item:hover img {
     transform: scale(1.1);
 }
-
 
 /*** Testimonial ***/
 .testimonial-carousel::before {
@@ -439,7 +437,9 @@
     left: 0;
     height: 100%;
     width: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0) 100%);
     z-index: 1;
 }
 
@@ -450,7 +450,9 @@
     right: 0;
     height: 100%;
     width: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to left,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0) 100%);
     z-index: 1;
 }
 
@@ -472,7 +474,7 @@
 
 .testimonial-carousel .owl-item .testimonial-text,
 .testimonial-carousel .owl-item.center .testimonial-text * {
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .testimonial-carousel .owl-item.center .testimonial-text {
@@ -480,7 +482,7 @@
 }
 
 .testimonial-carousel .owl-item.center .testimonial-text * {
-    color: #FFFFFF !important;
+    color: #ffffff !important;
 }
 
 .testimonial-carousel .owl-dots {
@@ -496,15 +498,14 @@
     margin: 0 5px;
     width: 15px;
     height: 15px;
-    border: 1px solid #CCCCCC;
-    transition: .5s;
+    border: 1px solid #cccccc;
+    transition: 0.5s;
 }
 
 .testimonial-carousel .owl-dot.active {
     background: var(--primary);
     border-color: var(--primary);
 }
-
 
 /*** Footer ***/
 .footer .btn.btn-social {
@@ -516,9 +517,9 @@
     justify-content: center;
     color: var(--light);
     font-weight: normal;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #ffffff;
     border-radius: 35px;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .footer .btn.btn-social:hover {
@@ -530,11 +531,11 @@
     margin-bottom: 5px;
     padding: 0;
     text-align: left;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 15px;
     font-weight: normal;
     text-transform: capitalize;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .footer .btn.btn-link::before {
@@ -553,7 +554,7 @@
 .footer .copyright {
     padding: 25px 0;
     font-size: 15px;
-    border-top: 1px solid rgba(256, 256, 256, .1);
+    border-top: 1px solid rgba(256, 256, 256, 0.1);
 }
 
 .footer .copyright a {
@@ -563,7 +564,7 @@
 .footer .footer-menu a {
     margin-right: 15px;
     padding-right: 15px;
-    border-right: 1px solid rgba(255, 255, 255, .1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer .footer-menu a:last-child {
@@ -580,7 +581,7 @@
 
 /* customize */
 /* navbar */
-.title{
+.title {
     font-size: 2rem;
 }
 
@@ -595,20 +596,22 @@
 }
 
 .card {
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #f0f0f0;
+    /* Light gray background */
     border: none;
     margin-bottom: 20px;
     font-size: 1.2rem;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
 }
 
 .card-title {
     font-weight: bold;
-    color: var(--primary) 
+    color: var(--primary);
 }
 
 .card-text {
-   color: var(--primary);
+    color: var(--primary);
 }
 
 .card-text ul {
@@ -620,19 +623,113 @@
     list-style-type: none;
     margin-bottom: 5px;
 }
- .btn-course {
-            background-color: #007bff; /* Bootstrap primary button color */
-            color: #fff; /* Button text color */
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s;
-        }
 
-        .btn-course:hover {
-            background-color:#fff; /* Darker shade on hover */
-            color: #0056b3 ; /* Button text color */
-            text-decoration: none;
-        }
+.btn-course {
+    background-color: #007bff;
+    /* Bootstrap primary button color */
+    color: #fff;
+    /* Button text color */
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-course:hover {
+    background-color: #fff;
+    /* Darker shade on hover */
+    color: #0056b3;
+    /* Button text color */
+    text-decoration: none;
+}
+
+/* customize navbar */
+.profile-image {
+    width: 40px;
+    /* Adjust size as needed */
+    height: 40px;
+    /* Adjust size as needed */
+    object-fit: cover;
+    /* Ensure the image covers the area */
+    border-radius: 50%;
+    /* Makes the image round */
+    border: 2px solid #007bff;
+    /* Primary border color */
+    transition: border-color 0.3s ease;
+    /* Smooth transition for border color */
+}
+
+.profile-image:hover {
+    border-color: transparent;
+    /* Hide border on hover */
+}
+
+.dropdown-menu {
+    min-width: 130px;
+    /* Ensure the dropdown menu has enough width */
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-item.text-danger {
+    color: #dc3545;
+    /* Bootstrap danger color for Logout */
+}
+
+.dropdown-item.text-danger:hover {
+    background-color: #f8d7da;
+    /* Light red background on hover */
+}
+
+/* Remove background color and border of profile image link */
+.btn-link {
+    background-color: transparent;
+    /* Remove background color */
+    border: none;
+    /* Remove border */
+    padding: 0;
+    /* Remove padding */
+    display: flex;
+    /* Flexbox for centering content */
+    align-items: center;
+    /* Center content vertically */
+    justify-content: center;
+    /* Center content horizontally */
+    cursor: pointer;
+    /* Pointer cursor */
+    position: relative;
+    /* For absolute positioning of arrow */
+}
+
+/* Hide the dropdown arrow (caret) */
+.btn-link::after {
+    display: none;
+    /* Hides the caret */
+}
+
+/* Remove border on hover for dropdown toggle */
+.btn-link:hover {
+    border: none;
+    /* Ensure no border on hover */
+    outline: none;
+    /* Remove any outline */
+}
+
+/* Ensure no border for dropdown menu */
+.dropdown-menu {
+    border: none;
+    /* Remove border from dropdown menu */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    /* Optional: Adjust shadow if needed */
+}
+
+/* Ensure navbar alignment */
+.navbar-nav {
+    margin-right: 6rem;
+    /* Center the nav links to the left */
+}

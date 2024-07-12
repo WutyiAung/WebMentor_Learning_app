@@ -1,4 +1,6 @@
-{{-- <x-admin-layout>
+<!-- resources/views/blogs/edit.blade.php -->
+
+<x-admin-layout>
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Edit Blog</h1>
@@ -9,7 +11,7 @@
                 </div>
                 <div class="container card">
                     <div class="card-body">
-                        <form action="{{ route('blogs.update', $blog->id) }}" method="POST">
+                        <form action="{{ route('blogs.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
@@ -33,7 +35,7 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label for="blog_category_id" class="form-label">Category</label>
                                 <select class="form-control" id="blog_category_id" name="blog_category_id">
                                     <option value="">Select Category</option>
@@ -46,13 +48,23 @@
                                 @error('blog_category_id')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
+                            </div> --}}
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" class="form-control" id="image" name="image">
+                                @if ($blog->image)
+                                    <img src="{{ Storage::url($blog->image) }}" alt="Blog Image" width="100" class="mt-2">
+                                @endif
+                                @error('image')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary">Update Blog</button>
                             <a href="{{ route('blogs.index') }}" class="btn btn-secondary">Cancel</a>
                         </form>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </main>
-</x-admin-layout> --}}
+</x-admin-layout>

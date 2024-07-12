@@ -73,6 +73,15 @@
                             </div>
                         </div>
 
+                        <!-- New Level Input -->
+                        <div class="mb-3">
+                            <label for="level" class="form-label text-primary fw-bold">Level</label>
+                            <input type="text" class="form-control text-primary fw-bold @error('level') is-invalid @enderror" id="level" name="level" value="{{ old('level') }}" required>
+                            @error('level')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         <button type="submit" class="btn btn-success">Create</button>
                         <a href="{{ route('courses.index') }}" class="btn btn-secondary">Cancel</a>
                     </form>

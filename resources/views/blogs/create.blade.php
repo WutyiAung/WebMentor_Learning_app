@@ -1,4 +1,4 @@
-{{-- <!-- resources/views/blogs/create.blade.php -->
+<!-- resources/views/blogs/create.blade.php -->
 <x-admin-layout>
     <main>
         <div class="container-fluid px-4">
@@ -10,7 +10,16 @@
                 </div>
                 <div class="container card">
                     <div class="card-body">
-                        <form action="{{ route('blogs.store') }}" method="POST">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <form action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
@@ -24,7 +33,7 @@
                                 <label for="author" class="form-label">Author</label>
                                 <input type="text" class="form-control" id="author" name="author">
                             </div>
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label for="blog_category_id" class="form-label">Category</label>
                                 <select class="form-control" id="blog_category_id" name="blog_category_id">
                                     <option value="">Select Category</option>
@@ -32,6 +41,10 @@
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
+                            </div> --}}
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" class="form-control-file" id="image" name="image">
                             </div>
                             <div class="mb-3">
                                 <a href="{{ route('blogs.index') }}" class="btn btn-secondary">Cancel</a>
@@ -43,4 +56,4 @@
             </div>
         </div>
     </main>
-</x-admin-layout> --}}
+</x-admin-layout>

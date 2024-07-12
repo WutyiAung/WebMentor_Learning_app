@@ -41,6 +41,11 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('profile_images', 'public');
+            $user->image = $path;
+            $user->save();
+        }
         event(new Registered($user));
 
         Auth::login($user);

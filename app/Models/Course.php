@@ -25,8 +25,16 @@ class Course extends Model
         // return $this->belongsTo(Category::class);
         return $this->belongsTo(Category::class);
     }
+
     public function enrollments()
     {
-        return $this->hasMany(Enrollment::class);
+        return $this->belongsToMany(User::class, 'enrollments')->withTimestamps();
     }
+    
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'enrollments');
+    }
+
 }

@@ -54,40 +54,39 @@
 
         <div class="row g-4 py-2">
             @foreach($courses as $course)
-            <div class="col-lg-4 col-md-6 mb-4  wow fadeInUp" data-wow-delay="0.1s">
-                <div class="card h-100 shadow">
-                    <div class="position-relative overflow-hidden text-light" style="height: 200px;">
-                        <img class="img-fluid w-100 h-100" src="{{ asset('storage/' . $course->image) }}" alt="{{ $course->title }}" style="object-fit: cover;">
-                        <div class="position-absolute top-0 start-0 m-3 p-2 bg-warning text-dark fw-bold text-uppercase rounded" style="font-size: 12px;">
-                            FREE
-                        </div>
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title mb-2">
-                            <a href="{{ route('courses.show', $course->id) }}" class="text-dark">{{ $course->title }}</a>
-                        </h5>
-                        <p class="mb-2"><strong>Category:</strong> {{ $course->category->name }}</p>
-                        <p class="mb-2"><strong>Level:</strong> {{ $course->level }}</p> <!-- Added level here -->
-                        <p class="card-text description">
-                            {{ $course->description }}
-                        </p>
-                        <div class="mt-3">
-                            <p class="mb-1"><strong>Source:</strong> {{ $course->source }}</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="fw-bold">0 kyats</span>
+            <div class="col-lg-4 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.1s">
+                <!-- Make the card clickable by wrapping it in an anchor tag -->
+                <a href="{{ route('courses.showDetails', $course->id) }}" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow">
+                        <div class="position-relative overflow-hidden text-light" style="height: 200px;">
+                            <img class="img-fluid w-100 h-100" src="{{ asset('storage/' . $course->image) }}" alt="{{ $course->title }}" style="object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 m-3 p-2 bg-warning text-dark fw-bold text-uppercase rounded" style="font-size: 12px;">
+                                FREE
                             </div>
                         </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title mb-2">
+                                {{ $course->title }}
+                            </h5>
+                            <p class="mb-2"><strong>Category:</strong> {{ $course->category->name }}</p>
+                            <p class="mb-2"><strong>Level:</strong> {{ $course->level }}</p> <!-- Added level here -->
+                            <p class="card-text description">
+                                {{ $course->description }}
+                            </p>
+                            <div class="mt-3">
+                                <p class="mb-1"><strong>Source:</strong> {{ $course->source }}</p>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <!-- Optionally include the button inside the card, but it will not be necessary if the whole card is clickable -->
+                            <a href="{{ route('courses.showDetails', $course->id) }}" class="btn btn-sm btn-primary">Enroll Now</a>
+                        </div>
                     </div>
-                    <div class="card-footer d-flex justify-content-between align-items-center">
-                        <a href="{{ route('courses.showDetails', $course->id) }}" class="btn btn-sm btn-primary">Enroll Now</a>
-                    </div>
-                </div>
+                </a>
             </div>
-            
-            
-             @endforeach
-        
+            @endforeach
         </div>
+        
 
         <!-- Pagination -->
         <div class="pagination">

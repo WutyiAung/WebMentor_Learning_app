@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'image',
     ];
 
     /**
@@ -31,6 +32,22 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+   
+    public function enrollments()
+    {
+        return $this->belongsToMany(Course::class, 'enrollments')->withTimestamps();
+    }
+
+
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class, 'enrollments');
+    }
+
+    public function hasRole($role)
+    {
+        return $this->role === $role;
+    }
 
     /**
      * Get the attributes that should be cast.

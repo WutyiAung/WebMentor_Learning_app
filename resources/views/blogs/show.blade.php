@@ -1,4 +1,5 @@
-{{-- <x-admin-layout>
+<!-- resources/views/blogs/show.blade.php -->
+<x-admin-layout>
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Blog Details</h1>
@@ -25,6 +26,14 @@
                             <label class="form-label"><strong>Category:</strong></label>
                             <p>{{ $blog->category ? $blog->category->name : 'Uncategorized' }}</p>
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label"><strong>Image:</strong></label>
+                            @if ($blog->image)
+                                <img src="{{ Storage::url($blog->image) }}" alt="Blog Image" width="300">
+                            @else
+                                <p>No image uploaded</p>
+                            @endif
+                        </div>
                         <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-warning">Edit</a>
                         <a href="{{ route('blogs.index') }}" class="btn btn-secondary">Back to List</a>
                     </div>
@@ -32,4 +41,4 @@
             </div>
         </div>
     </main>
-</x-admin-layout> --}}
+</x-admin-layout>
