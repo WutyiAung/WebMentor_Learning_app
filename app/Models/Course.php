@@ -37,4 +37,9 @@ class Course extends Model
         return $this->belongsToMany(User::class, 'enrollments');
     }
 
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

@@ -42,6 +42,8 @@ class CourseController extends Controller
         return view('home.courses', compact('courses', 'categories'));
     }
     
+    
+    
    public function index()
     {
         $courses = Course::with('category')->latest()->paginate(10);

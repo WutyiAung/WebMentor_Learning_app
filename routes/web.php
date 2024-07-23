@@ -3,10 +3,13 @@ use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\HomeController;
 use App\Http\Middleware\IsStudent;
 use App\Models\BlogCategory;
 use Illuminate\Support\Facades\Route;
@@ -15,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('home.index');
-})->name('home');
+Route::get('/', [HomeController::class , 'index'])->name('home');
 
 Route::get('/about', function () {
     return view('home.about');
@@ -27,6 +28,9 @@ Route::get('/paths', function () {
     return view('home.paths');
 })->name('paths');
 
+Route::get('/contact', function () {
+    return view('home.contact');
+})->name('contact');
 
 Route::get('/posts', [BlogController::class,'publicIndex'])->name('posts');
 Route::get('/blogs/{id}', [BlogController::class, 'publicShow'])->name('public.blogs.show');
@@ -88,3 +92,18 @@ Route::middleware(['auth', $studentMiddleware])->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/courses/{course}/enroll', [CourseController::class, 'enroll'])->name('courses.enroll');
 });
+
+Route::post('/blogs/{blog}/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::post('/courses/{course}/comments', [CommentController::class, 'storeCourse'])->name('courses.comments.store');
+Route::get('/comments/{comment}/edit', [CommentController::class, 'edit'])->name('comments.edit');
+Route::put('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+Route::post('/comments/{comment}/react', [CommentController::class, 'react'])->name('comments.react');
+Route::post('/comments/{comment}/replies', [CommentController::class, 'storeReply'])->name('replies.store');
+Route::delete('replies/{reply}', [CommentController::class, 'destroyReply'])->name('replies.destroy'); 
+
+// mail
+Route::post('/send-message', [ContactController::class, 'send'])->name('contact.send');
+
+// Routes for Course Comments
+

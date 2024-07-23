@@ -18,6 +18,7 @@
                                 <th>Name</th>
                                 <th>Slug</th>
                                 <th>Description</th>
+                                <th>Image</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -28,6 +29,13 @@
                                     <td>{{ $category->name }}</td>
                                     <td>{{ $category->slug }}</td>
                                     <td>{{ $category->description }}</td>
+                                    <td>
+                                        @if($category->image)
+                                            <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="img-thumbnail" width="50">
+                                        @else
+                                            <span>No Image</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{ route('categories.show', $category->id) }}" class="btn btn-info btn-sm">View</a>
                                         <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary btn-sm">Edit</a>

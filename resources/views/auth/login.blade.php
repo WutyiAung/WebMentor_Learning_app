@@ -43,9 +43,10 @@
                     </a>
                 @endif
 
-                <x-primary-button class="ms-3 h-12 text-sm px-6">
-                    {{ __('Log in') }}
+                <x-primary-button class="ms-3 h-12 text-sm px-2">
+                    <span class="w-20">{{ __('Log in') }}</span>
                 </x-primary-button>
+                
             </div>
         </form>
     </div>

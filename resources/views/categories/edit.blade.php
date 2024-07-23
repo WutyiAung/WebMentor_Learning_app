@@ -7,7 +7,7 @@
                     <h5>Edit Category</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('categories.update', $category->id) }}" method="POST">
+                    <form action="{{ route('categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="mb-4">
@@ -30,6 +30,18 @@
                             @error('description')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="image" class="form-label text-primary fw-bold">Category Image</label>
+                            <input type="file" class="form-control text-dark fw-bold @error('image') is-invalid @enderror" id="image" name="image">
+                            @error('image')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            @if($category->image)
+                                <div class="mt-3">
+                                    <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="img-thumbnail" width="150">
+                                </div>
+                            @endif
                         </div>
                         <div class="mb-4">
                             <a href="{{ route('categories.index') }}" class="btn btn-secondary">Cancel</a>

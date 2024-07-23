@@ -1,5 +1,4 @@
 <!-- resources/views/dashboard.blade.php -->
-
 <x-admin-layout>
     <main>
         <div class="container-fluid px-4">

@@ -25,6 +25,14 @@
                         <label class="form-label"><strong>Description:</strong></label>
                         <p>{{ $category->description }}</p>
                     </div>
+                    @if($category->image)
+                        <div class="mb-3">
+                            <label class="form-label"><strong>Image:</strong></label>
+                            <div>
+                                <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="img-thumbnail" width="150">
+                            </div>
+                        </div>
+                    @endif
                     <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">Edit</a>
                     <a href="{{ route('categories.index') }}" class="btn btn-secondary">Back to List</a>
                 </div>

@@ -17,11 +17,11 @@
         </div>
 
         <!-- Profile Image -->
-        <div class="mt-4">
+        {{-- <div class="mt-4">
             <x-input-label for="image" :value="__('Profile Image')" />
             <x-text-input id="image" class="block mt-1 w-full" type="file" name="image" accept="image/*" />
             <x-input-error :messages="$errors->get('image')" class="mt-2" />
-        </div>
+        </div> --}}
 
         <!-- Password -->
         <div class="mt-4">

@@ -1,35 +1,35 @@
 
-document.addEventListener('DOMContentLoaded', function () {
-    const darkModeToggle = document.getElementById('darkModeToggle');
+// document.addEventListener('DOMContentLoaded', function () {
+//     const darkModeToggle = document.getElementById('darkModeToggle');
 
-    // Check if dark mode preference is set in local storage
-    const darkMode = localStorage.getItem('darkMode');
+//     // Check if dark mode preference is set in local storage
+//     const darkMode = localStorage.getItem('darkMode');
 
-    if (darkMode === 'enabled') {
-        enableDarkMode();
-    }
+//     if (darkMode === 'enabled') {
+//         enableDarkMode();
+//     }
 
-    // Toggle dark mode when button is clicked
-    darkModeToggle.addEventListener('click', function () {
-        if (document.body.classList.contains('dark-mode')) {
-            // Disable dark mode
-            disableDarkMode();
-        } else {
-            // Enable dark mode
-            enableDarkMode();
-        }
-    });
+//     // Toggle dark mode when button is clicked
+//     darkModeToggle.addEventListener('click', function () {
+//         if (document.body.classList.contains('dark-mode')) {
+//             // Disable dark mode
+//             disableDarkMode();
+//         } else {
+//             // Enable dark mode
+//             enableDarkMode();
+//         }
+//     });
 
-    function enableDarkMode() {
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('darkMode', 'enabled');
-    }
+//     function enableDarkMode() {
+//         document.body.classList.add('dark-mode');
+//         localStorage.setItem('darkMode', 'enabled');
+//     }
 
-    function disableDarkMode() {
-        document.body.classList.remove('dark-mode');
-        localStorage.setItem('darkMode', null);
-    }
-});
+//     function disableDarkMode() {
+//         document.body.classList.remove('dark-mode');
+//         localStorage.setItem('darkMode', null);
+//     }
+// });
 
 
 
@@ -147,7 +147,50 @@ function selectCategory(id, name) {
     document.getElementById('category_id').value = id;
     document.querySelector('.dropdown-toggle').textContent = name;
 }
+// COMMENTS
+document.addEventListener('DOMContentLoaded', function() {
+    // Show edit form
+    document.querySelectorAll('.edit-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const commentDiv = this.closest('.comment');
+            commentDiv.querySelector('.comment-text').classList.add('d-none');
+            commentDiv.querySelector('.edit-form').classList.remove('d-none');
+        });
+    });
 
+    // Cancel edit
+    document.querySelectorAll('.cancel-edit').forEach(button => {
+        button.addEventListener('click', function() {
+            const commentDiv = this.closest('.edit-form').closest('.comment');
+            commentDiv.querySelector('.comment-text').classList.remove('d-none');
+            commentDiv.querySelector('.edit-form').classList.add('d-none');
+        });
+    });
+
+    // Show reply form
+    document.querySelectorAll('.reply-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const replyForm = this.nextElementSibling;
+            replyForm.classList.toggle('d-none');
+        });
+    });
+
+    // Cancel reply
+    document.querySelectorAll('.cancel-reply').forEach(button => {
+        button.addEventListener('click', function() {
+            const replyForm = this.closest('.reply-form');
+            replyForm.classList.add('d-none');
+        });
+    });
+
+    // Show/hide replies
+    document.querySelectorAll('.reply-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const replyContainer = this.closest('.comment').querySelector('.reply-container');
+            replyContainer.classList.toggle('d-none');
+        });
+    });
+});
 
 
 

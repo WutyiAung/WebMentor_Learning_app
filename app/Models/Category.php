@@ -10,7 +10,7 @@ class Category extends Model
     use HasFactory;
 // app/Models/Category.php
 
-    protected $fillable = ['name', 'slug', 'description'];
+    protected $fillable = ['name', 'slug', 'description', 'image'];
     protected static function boot()
     {
         parent::boot();

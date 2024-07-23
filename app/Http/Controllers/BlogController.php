@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -11,11 +12,15 @@ use Illuminate\Support\Facades\Auth;
 class BlogController extends Controller
 {
     // Constructor to apply middleware
-    
+    // public function __construct()
+    // {
+    //     $this->middleware('auth')->except(['index', 'publicIndex', 'publicShow']);
+    // }
+
     // Display a listing of the resource
     public function index()
     {
-        $blogs = Blog::with('category')->paginate(10);
+        $blogs = Blog::with('category')->latest()->paginate(10);
         return view('blogs.index', compact('blogs'));
     }
 
@@ -35,7 +40,9 @@ class BlogController extends Controller
 
     public function publicShow($id)
     {
-        $blog = Blog::findOrFail($id);
+        $blog = Blog::with(['comments' => function($query) {
+            $query->whereNull('parent_id')->with('replies', 'user', 'replies.user');
+        }])->findOrFail($id);
         return view('home.show_blog', compact('blog'));
     }
 
@@ -71,25 +78,28 @@ class BlogController extends Controller
 
     public function show(Blog $blog)
     {
+        $blog->load(['comments' => function($query) {
+            $query->whereNull('parent_id')->with('replies', 'user', 'replies.user');
+        }]);
         return view('blogs.show', compact('blog'));
     }
-
 
     // Show the form for editing the specified resource
     public function edit(Blog $blog)
     {
-        return view('blogs.edit', compact('blog'));
+        $categories = Category::all();
+        return view('blogs.edit', compact('blog', 'categories'));
     }
 
     // Update the specified resource in storage
     public function update(Request $request, Blog $blog)
     {
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-            'author' => 'nullable|string',
-            'blog_category_id' => 'nullable|exists:blog_categories,id',
-            'image' => 'nullable|image|max:2048'
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'author' => 'nullable|string|max:255',
+            'blog_category_id' => 'nullable|exists:categories,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $blog->title = $request->input('title');
@@ -100,9 +110,9 @@ class BlogController extends Controller
         if ($request->hasFile('image')) {
             // Delete old image if exists
             if ($blog->image) {
-                Storage::delete($blog->image);
+                Storage::disk('public')->delete($blog->image);
             }
-            $blog->image = $request->file('image')->store('blogs');
+            $blog->image = $request->file('image')->store('blogs', 'public');
         }
 
         $blog->save();

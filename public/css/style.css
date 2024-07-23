@@ -35,7 +35,9 @@
 .btn:hover {
     background: transparent;
     color: var(--primary) !important;
-    border: 1px solid var(--primary);
+    /* border: 1px solid var(--primary); */
+    transition: 1s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add box-shadow */
 }
 
 .btn:hover a {
@@ -730,6 +732,116 @@
 
 /* Ensure navbar alignment */
 .navbar-nav {
-    margin-right: 6rem;
+    margin-right: 3rem;
     /* Center the nav links to the left */
+}
+.navbar-nav .nav-link {
+    color: #ffffff !important; /* Makes the text color white */
+}
+
+.navbar-nav .dropdown-menu .dropdown-item {
+    color: #000000; /* Black color for dropdown items to ensure readability */
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+    background-color: #f8f9fa; /* Light background on hover for dropdown items */
+    color: #000000; /* Black color for text on hover */
+}
+
+.navbar-nav .dropdown-toggle .profile-image {
+    border-radius: 50%; /* Keeps the image round */
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    object-fit: cover;
+    border: 2px solid #ffffff;
+}
+.nav-link {
+    color: white; /* Default link color */
+}
+
+.nav-link.active {
+    color: #ffd700; /* Change to your desired color for active link */
+    font-weight: bold; /* Optional: make active link bold */
+    text-decoration: underline; /* Optional: underline active link */
+}
+
+.nav-link:hover {
+    color: #ffeb3b; /* Change to your desired hover color */
+}
+body {
+    font-family: 'Noto Sans Myanmar', sans-serif;
+    font-size: 1.2rem
+}
+
+/* COMMENTS */
+.comment-input {
+    width: 100%;
+}
+.comment-card-body {
+    max-width: 800px; /* Increase this value to make the card wider */
+    margin: 0 auto; /* Center the card body */
+}
+.comment {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 1rem;
+}
+.comment p {
+    margin: 0;
+}
+.comment p:first-of-type {
+    font-weight: bold;
+}
+.btn-link {
+    color: inherit; /* Ensure the button text color matches the surrounding text */
+    text-decoration: none; /* Remove underline from link button */
+}
+.btn-link p-0 {
+    padding: 0;
+}
+.delete-btn {
+    color: red;
+}
+.ms-5 {
+    margin-left: 3rem;
+}
+.edit-button {
+    color: #4169e1;
+}
+.blog-card, .comment-card {
+    background: transparent; /* Remove background color */
+    box-shadow: 0 4px 8px rgb(91, 92, 180); /* Keep shadow for better clarity */
+    border-radius: 10px;
+}
+.btn-link {
+    padding: 0; /* Remove padding from icon buttons */
+}
+.submit-btn i,
+.cancel-edit i,
+.cancel-reply i {
+    font-size: 1.5rem; /* Increase the size of the icons */
+    font-weight: bold; /* Make the icons bold */
+}
+.search:focus{
+    outline-color: rgb(0, 98, 255);
+}
+.full-screen-img {
+    height: 100vh; /* Full viewport height */
+    width: 98.5vw;  /* Full viewport width */
+   
+}
+.no-gutters {
+    margin: 0;
+    padding: 0;
+}
+input[type="text"], input[type="email"] {
+    border: 2px solid var(--primary); 
+    color: var(--bs-primary); 
+}
+.message{
+    border: 2px solid var(--primary);
+    color: var(--bs-primary); 
+}
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); 
 }

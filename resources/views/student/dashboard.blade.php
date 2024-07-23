@@ -8,7 +8,7 @@
                     @if(auth()->user()->image)
                         <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="Profile Picture" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
                     @else
-                        <img src="https://via.placeholder.com/150" alt="Default Profile Picture" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                    <img src="/storage/profile_images/default.png" alt="Profile Image"  class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
                     @endif
                     <h4>{{ auth()->user()->name }}</h4>
                     <p>{{ auth()->user()->email }}</p>

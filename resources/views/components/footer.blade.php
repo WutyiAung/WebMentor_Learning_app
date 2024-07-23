@@ -4,17 +4,17 @@
         <div class="row g-5">
             <div class="col-lg-4 col-md-6">
                 <h4 class="text-white mb-3">Quick Link</h4>
-                <p><a class="text-light" href="about.html">About Us</a></p>
-                <p><a class="text-light" href="contact.html">Contact Us</a></p>
+                <p><a class="text-light" href="{{ route('about') }}">About Us</a></p>
+                <p><a class="text-light" href="{{ route('contact')}} ">Contact Us</a></p>
                 <p><a class="text-light" href="">Privacy Policy</a></p>
                 <p><a class="text-light" href="">Terms & Condition</a></p>
                 <p><a class="text-light" href="">FAQs & Help</a></p>
             </div>
             <div class="col-lg-4 col-md-6">
                 <h4 class="text-white mb-3">Contact</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Nga Moe Yike, 9th Street, Thingyun , Yangon</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+95 9694140842</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>wutyiaung132@gmial.com</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Nga Moe Yike, 9th Street, Thingangyun , Yangon</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+959694140842">+95 9694140842</a></p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:wutyiaung132@gmail.com">wutyiaung132@gmail.com</a></p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>

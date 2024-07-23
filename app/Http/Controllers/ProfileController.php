@@ -61,16 +61,23 @@ class ProfileController extends Controller
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
         ]);
-
+    
         $user = $request->user();
-
+    
+        // Delete related models
+        // $user->comments()->delete(); // Delete all comments by the user
+        // $user->replies()->delete();  // Delete all replies by the user
+        $user->enrollments()->detach(); // Remove all course enrollments
+    
+        // Log out and delete the user
         Auth::logout();
-
+    
         $user->delete();
-
+    
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
+    
         return Redirect::to('/');
     }
+    
 }

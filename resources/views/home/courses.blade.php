@@ -1,5 +1,15 @@
 <x-header></x-header>
 
+
+<!-- Custom CSS for hover effect -->
+<style>
+  .dropdown-toggle-item:hover {
+        color:#4543cd !important;
+        font-weight: bold !important;
+        background-color: #fff !important; /* Optional: change background color on hover */
+    }
+</style>
+
 <!-- Header Start -->
 <div class="container-fluid bg-primary py-5 mb-5 page-header">
     <div class="container py-5">
@@ -27,16 +37,21 @@
         </div>
 
         <div class="container my-5">
-            <form action="{{ route('public.courses') }}" method="GET" class="d-flex">
-                <div class="input-group" style="max-width: 600px; margin: 0 auto;">
+            <form id="categoryForm" action="{{ route('public.courses') }}" method="GET" class="d-flex">
+                <div class="input-group" style="max-width: 800px; margin: 0 auto;">
                     <!-- Dropdown for categories -->
-                    <button class="btn btn-outline-primary text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primary text-white dropdown-toggle dropdown-toggle-item" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ request('category_name') ?? 'Categories' }}
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <ul class="dropdown-menu bg-light" aria-labelledby="dropdownMenuButton">
+                        <li>
+                            <a class="dropdown-item text-dark" href="#" onclick="selectCategory('', 'All', event)">
+                                All
+                            </a>
+                        </li>
                         @foreach($categories as $category)
                             <li>
-                                <a class="dropdown-item" href="#" onclick="selectCategory('{{ $category->id }}', '{{ $category->name }}', event)">
+                                <a class="dropdown-item text-dark" href="#" onclick="selectCategory('{{ $category->id }}', '{{ $category->name }}', event)">
                                     {{ $category->name }}
                                 </a>
                             </li>
@@ -87,7 +102,6 @@
             @endforeach
         </div>
         
-
         <!-- Pagination -->
         <div class="pagination">
             {{ $courses->links() }}
@@ -96,49 +110,14 @@
 </div>
 <!-- Courses End -->
 
-<!-- Categories Start -->
-<div class="container-xxl py-5 category">
-    <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title bg-white text-center px-3">Categories</h6>
-            <h1 class="mb-5" style="color: #fb873f;">Popular Topics to Explore</h1>
-        </div>
-        <div class="row g-2 m-2">
-            @foreach($categories as $category)
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="content shadow p-3 mb-2 wow fadeInUp" data-wow-delay="0.3s">
-                        <img src="{{ asset('img/cat' . $category->id . '.png') }}" class="img-fluid" alt="categories">
-                        <h5 class="my-2">
-                            <a href="#" class="text-center">{{ $category->name }}</a>
-                        </h5>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-    <!-- Pagination -->
-    <div class="pagination">
-        {{ $courses->links() }}
-    </div>
-</div>
-<!-- Categories End -->
+<x-footer></x-footer>
 
 <script>
-    function selectCategory(categoryId, categoryName, event) {
-        event.preventDefault(); // Prevent the default anchor click behavior
-
-        // Set the category_id input value
-        document.getElementById('category_id').value = categoryId;
-
-        // Set the dropdown button text
-        document.getElementById('dropdownMenuButton').innerText = categoryName;
-
-        // Set the hidden input for category name
-        document.getElementById('category_name').value = categoryName;
-
-        // Submit the form
-        document.querySelector('form').submit();
+    function selectCategory(id, name, event) {
+        event.preventDefault();
+        document.getElementById('category_id').value = id;
+        document.getElementById('category_name').value = name;
+        document.getElementById('categoryForm').submit();
     }
 </script>
-
-<x-footer></x-footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
