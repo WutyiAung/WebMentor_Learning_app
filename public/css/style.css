@@ -6,7 +6,7 @@
     --dark: #181d38;
 } */
 :root {
-    --primary: #4169e1;
+    --primary: #0f319a;
     /* Royal Blue for primary elements */
     --secondary: #50d2f6;
     /* Bright Blue for accents */
@@ -144,7 +144,7 @@
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-    color: var(--primary);
+    color: var(--dark);
 }
 
 @media (max-width: 991.98px) {
@@ -302,7 +302,7 @@
 }
 
 .page-header {
-    background: linear-gradient(rgba(24, 29, 56, 0.7), rgba(24, 29, 56, 0.7)),
+    background: linear-gradient(rgba(24, 29, 56, 0.238), rgba(24, 29, 56, 0.7)),
         url(../img/carousel-1.jpg);
     background-position: center center;
     background-repeat: no-repeat;
@@ -765,9 +765,7 @@
     text-decoration: underline; /* Optional: underline active link */
 }
 
-.nav-link:hover {
-    color: #ffeb3b; /* Change to your desired hover color */
-}
+
 body {
     font-family: 'Noto Sans Myanmar', sans-serif;
     font-size: 1.2rem
@@ -845,3 +843,158 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); 
 }
+p{
+    font-size: 1rem;
+}
+/* ABOUT */
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+.final-note {
+    background: linear-gradient(to right, #e0f7fa, #b9fbc0); /* Adjusted background for relevance */
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.final-note .emoji {
+    font-size: 1.75rem;
+}
+
+.final-note:first-of-type {
+    background: linear-gradient(to right, #fce4ec, #f8bbd0); /* Light pink gradient to align with primary color */
+}
+
+h2, h4 {
+    font-family: 'Roboto', sans-serif;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    border-left: 4px solid var(--primary);
+}
+
+.emoji {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-title {
+    color: var(--primary);
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.card-text {
+    color: #555;
+}
+
+.icon-color {
+    color: var(--dark);
+    font-weight: bold;
+    margin-right: 10px;
+}
+.form-control {
+    border: 2px solid var(--primary);
+}
+/* courses card */
+/* Ensure the card has a fixed height */
+.fixed-height-card {
+    height: 450px; /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make the card body scrollable if content overflows */
+.fixed-height-card .card-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure the footer is always at the bottom of the card */
+.fixed-height-card .card-footer {
+    margin-top: auto;
+}
+
+/* Add ellipsis for overflowing text */
+.card-text.description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card-width {
+    max-width: 800px; /* Adjust this value as needed */
+    width: 100%; /* Ensures the cards are responsive */
+}
+.navbar-nav .nav-link {
+    color: white; /* Make the link color white */
+    font-family: 'Nunito', sans-serif; /* Use the Nunito font for a modern, clean look */
+    font-weight: 600; /* Add some boldness */
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffcc00; /* Change color on hover for contrast */
+}
+
+.navbar-nav .nav-link.active {
+    background-color: #0f319a; /* Highlight active link with primary color */
+    color: white;
+    border-radius: 4px;
+}
+
+.navbar-toggler {
+    border-color: white;
+    color: white;
+}
+
+/* Adjust the dropdown menu style */
+.dropdown-menu .dropdown-item {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: #0f319a;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #0f319a;
+    color: white;
+}
+
+/* Customize profile image */
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+

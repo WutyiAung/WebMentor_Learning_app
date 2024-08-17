@@ -24,7 +24,7 @@ class ContactController extends Controller
             'message' => $request->message,
         ];
 
-        Mail::to('harleyqueen150@gmail.com')->send(new ContactMail($details));
+        Mail::to('harleyqueen150@gmail.com')->queue(new ContactMail($details));
 
         return back()->with('success', 'Your message has been sent successfully!');
     }

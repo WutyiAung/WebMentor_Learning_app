@@ -41,21 +41,62 @@
             </div>
 
             <!-- Enroll Button -->
+       <!-- Enroll Button -->
+            {{-- <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Enroll Now</h4>
+                    @auth
+                        <form action="{{ route('courses.enroll', $course->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary btn-block">Enroll in this course</button>
+                        </form>
+                    @else
+                        <div class="alert alert-warning" role="alert">
+                            <p>You need to <a href="{{ route('login') }}" class="alert-link">log in</a> or <a href="{{ route('register') }}" class="alert-link">register</a> to enroll in this course.</p>
+                        </div>
+                    @endauth
+                </div>
+            </div> --}}
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Enroll Now</h4>
-                    <form action="{{ route('courses.enroll', $course->id) }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-primary btn-block">Enroll in this course</button>
-                    </form>
+                    @auth
+                        @if(Auth::user()->is_admin)
+                            <!-- Admin users do not need to enroll -->
+                            <div class="alert alert-info" role="alert">
+                                Admins do not need to enroll in courses.
+                            </div>
+                        @else
+                            @if($course->isEnrolledBy(Auth::user())) 
+                                <!-- If the user is already enrolled, show the "Unenroll" button -->
+                                <form action="{{ route('courses.unenroll', $course->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-block">Unenroll from this course</button>
+                                </form>
+                            @else
+                                <!-- If the user is not enrolled, show the "Enroll" button -->
+                                <form action="{{ route('courses.enroll', $course->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary btn-block">Enroll in this course</button>
+                                </form>
+                            @endif
+                        @endif
+                    @else
+                        <!-- For guests, show a message prompting to login or register -->
+                        <div class="alert alert-warning" role="alert">
+                            <p>You need to <a href="{{ route('login') }}" class="alert-link">log in</a> or <a href="{{ route('register') }}" class="alert-link">register</a> to enroll in this course.</p>
+                        </div>
+                    @endauth
                 </div>
             </div>
+            
+
         </div>
 
         <!-- Course Details Section -->
         <div class="col-md-8">
-            <h1 class="mb-4">{{ $course->title }}</h1>
-            <p class="lead">{{ $course->description }}</p>
+            <h3 class="mb-4">{{ $course->title }}</h3>
+            <p class="lead" style="font-size: 1rem">{{ $course->description }}</p>
 
             <!-- Display YouTube content -->
             @if($course->youtube_playlist_id)

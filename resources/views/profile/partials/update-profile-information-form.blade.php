@@ -1,12 +1,13 @@
-<section class="bg-gray-800 p-6 rounded-lg shadow-lg">
+<section>
     <header>
-        <h2 class="text-lg font-medium text-green-400">
+        <h2 class="text-lg font-medium text-black">
             {{ __('Profile Information') }}
         </h2>
-
-        <p class="mt-1 text-sm text-green-200">
-            {{ __("Update your account's profile information and email address.") }}
+        
+        <p class="mt-1 text-sm text-black">
+            Update your account's profile information and email address
         </p>
+        
     </header>
 
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
@@ -48,8 +49,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
-
+            <x-primary-button><span style="margin:auto;">Save</span></x-primary-button>
             @if (session('status') === 'profile-updated')
                 <p
                     x-data="{ show: true }"

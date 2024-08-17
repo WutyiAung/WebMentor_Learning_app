@@ -1,5 +1,4 @@
 <x-header/>
-
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -16,9 +15,9 @@
                 <div class="card-body">
                     <h1 class="card-title">{{ $blog->title }}</h1>
                     <p class="text-muted">By {{ $blog->author }} on {{ $blog->created_at->format('M d, Y') }} | Estimated Read Time: 3 mins</p>
-                    <p class="card-text description">{{ $blog->description }}</p>
+                    <p class="card-text description" >{{ $blog->description }}</p>
                     <hr>
-                    <div style="line-height: 2.5rem;">
+                    <div style="line-height: 2.5rem; font-size : 1rem">
                         {!! $blog->content !!}
                     </div>
                     <div class="mt-4">
@@ -37,7 +36,7 @@
             
                     <!-- Display Success Message -->
                     @if(session('status'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="font-size: 0.8rem">
                             {{ session('status') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>

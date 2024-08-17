@@ -28,7 +28,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
@@ -38,11 +38,11 @@
 <body>
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top p-0" style="background: #0e5ed5">
+    <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top p-0" style="background:var(--primary)">
     <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
         <p class="m-0 fw-bold" style="font-size: 25px; color:white">
             <img src="/img/icon.png" alt="WebMentor Logo" height="50px">
-            WebMentor
+            <span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">WebMentor</span>
         </p>
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -122,8 +122,6 @@
         </div>
     </div>
 </nav>
-
-
     <!-- Navbar End -->
 </body>
 </html>

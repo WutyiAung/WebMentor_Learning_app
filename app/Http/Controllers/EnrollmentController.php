@@ -18,4 +18,10 @@ class EnrollmentController extends Controller
 
         return redirect()->route('courses.show', $course->id)->with('success', 'You have enrolled in this course');
     }
+
+    public function unenroll(Course $course)
+    {
+        $course->enrollments()->detach(auth()->user()->id);
+        return redirect()->back()->with('success', 'You have successfully unenrolled from the course.');
+    }
 }

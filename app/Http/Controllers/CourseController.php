@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CourseCreated;
 use App\Models\Course;
 use App\Models\Category;
 use App\Models\Enrollment;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
@@ -33,7 +36,7 @@ class CourseController extends Controller
         }
     
         // Get the filtered courses
-        $courses = $courses->latest()->paginate(6);
+        $courses = $courses->inRandomOrder()->paginate(6);
     
         // Get all categories for the dropdown
         $categories = Category::all();
@@ -75,6 +78,14 @@ class CourseController extends Controller
         }
     
         $course->save();
+    
+        // Send email to all subscribers
+        $subscribers = Subscription::all(); // Adjust this query to fit your application
+        
+        foreach ($subscribers as $subscriber) {
+            Mail::to($subscriber->email)->queue(new CourseCreated($course));
+        }
+    
         return redirect()->route('courses.index')->with('success', 'Course created successfully.');
     }
     

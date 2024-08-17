@@ -27,38 +27,40 @@
                     <a href="{{ route('courses.create') }}" class="btn btn-success btn-sm">Create Course</a>
                 </div>
                 <div class="card-body">
-                    <table id="datatablesSimple" class="table table-striped table-bordered">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Category</th>
-                                <th>URL</th>
-                                <th>Source</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($courses as $course)
+                    <div class="table-responsive">
+                        <table id="datatablesSimple" class="table table-striped table-bordered">
+                            <thead class="thead-dark">
                                 <tr>
-                                    <td>{{ $course->title }}</td>
-                                    <td>{{ $course->description }}</td>
-                                    <td>{{ $course->category->name }}</td>
-                                    <td><a href="{{ $course->url }}" target="_blank">{{ $course->url }}</a></td>
-                                    <td>{{ $course->source }}</td>
-                                    <td>
-                                        <a href="{{ route('courses.show', $course->id) }}" class="btn btn-info btn-sm my-2">View</a>
-                                        <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-primary btn-sm my-2">Edit</a>
-                                        <form action="{{ route('courses.destroy', $course->id) }}" method="POST" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this course?')">Delete</button>
-                                        </form>
-                                    </td>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>URL</th>
+                                    <th>Source</th>
+                                    <th>Actions</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($courses as $course)
+                                    <tr>
+                                        <td style="word-wrap: break-word; max-width: 150px;">{{ $course->title }}</td>
+                                        <td style="word-wrap: break-word; max-width: 250px;">{{ $course->description }}</td>
+                                        <td style="word-wrap: break-word; max-width: 150px;">{{ $course->category->name }}</td>
+                                        <td style="word-wrap: break-word; max-width: 150px;"><a href="{{ $course->url }}" target="_blank">{{ $course->url }}</a></td>
+                                        <td style="word-wrap: break-word; max-width: 150px;">{{ $course->source }}</td>
+                                        <td>
+                                            <a href="{{ route('courses.show', $course->id) }}" class="btn btn-info btn-sm my-2">View</a>
+                                            <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-primary btn-sm my-2">Edit</a>
+                                            <form action="{{ route('courses.destroy', $course->id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this course?')">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                     <!-- Pagination Links -->
                     <div class="d-flex justify-content-center">
                         {{ $courses->links() }}

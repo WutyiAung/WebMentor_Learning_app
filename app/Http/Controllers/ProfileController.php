@@ -17,8 +17,14 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $user = auth()->user();
+        $courses = null;
+        if(!$user->is_admin){
+            $courses = $user->courses;
+        }
         return view('profile.edit', [
             'user' => $request->user(),
+            'courses' => $courses
         ]);
     }
 
@@ -28,7 +34,7 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $user = $request->user();
-
+       
         // Handle the image upload
         if ($request->hasFile('image')) {
             // Delete the old image if it exists

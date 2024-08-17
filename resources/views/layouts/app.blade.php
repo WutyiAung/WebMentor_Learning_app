@@ -22,7 +22,7 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 ">
-            <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top p-0" style="background: #0e5ed5">
+            <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top p-0" style="background: #0f319a">
                 <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
                     <img src="/img/icon.png" alt="WebMentor Logo"  width="65px" height="65px" class="me-2">
                     <p class="m-0 fw-bold" style="font-size: 26px; color:white">
@@ -125,5 +125,4 @@
             </main>
         </div>
         <script src="/js/dashboard.js"></script>
-    </body>
-</html>
+   <x-footer/>

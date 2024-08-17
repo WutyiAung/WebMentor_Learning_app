@@ -1,15 +1,30 @@
    <x-header/>
+     @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-4">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/home-bg.png" alt="">
+                <img class="img-fluid" src="img/home-bg.png" alt="background-img">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
                     style="background: rgba(24, 29, 56, .7);">
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
-                                <h5 class=" text-uppercase mb-3 animated slideInDown" style="color: #fb873f;">Welcome to
+                                <h5 class=" text-uppercase mb-3 animated slideInDown" style="color:var(--primary);">Welcome to
                                    WebMentor</h5>
                                 <h1 class="display-3 text-white animated slideInDown title">
                                     Web Development ခရီးစဉ်ကို
@@ -35,7 +50,7 @@
         <div class="container">
             <div class="row g-2 text-center">
                 <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
-                    <h1 style="color: #fb873f;" class="title">WebMentor နှင်အတူ သင့်ရဲ့ web developer အိပ်မက်တွေကို အကောင်ထည်ဖော်လိုက်ပါ။</h1>
+                    <h3 style="color: var(--primary); font-size: 1.5rem" class="title">WebMentor နှင်အတူ သင့်ရဲ့ web developer အိပ်မက်တွေကို အကောင်ထည်ဖော်လိုက်ပါ။</h3>
                     <p class="mt-3 mb-5">Get unlimited access to a wide range of web development courses, projects, and resources on WebMentor, tailored for beginners and taught by experienced instructors. All content is freely available to help you start and advance your journey in web development.</p>
 
                 </div>
@@ -64,7 +79,7 @@
                         <div class="p-4 d-flex flex-column flex-grow-1 align-items-center justify-content-center">
                             <img src="img/icon3.png" alt="Flexible Learning Icon" class="mb-4" style="height: 80px;">
                             <h5 class="mb-3 fw-bold">Flexible Learning</h5>
-                            <p class="mb-0">Web development courses အစုံအလင်ကို အချိန်မရွေး နေရာမရွေး အခမဲ့လေ့လာနိုင်ပါတယ်။</p>
+                            <p class="mb-0">Web development courses အစုံအလင်ကို အချိန်မရွေး နေရာမရွေး လေ့လာနိုင်ပါတယ်။</p>
                         </div>
                     </div>
                 </div>
@@ -97,7 +112,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start pe-3">About Us</h6>
-                    <h1 class="mb-4" style="color: #fb873f;">Welcome to WebMentor</h1>
+                    <h2 class="mb-4" style="color: var(--primary);">Welcome to WebMentor</h2>
                     <p class="mb-4 " style=" text-align: justify; line-height:2.5rem">
                         WebMentor ဟာ web development carrer ကိုစတင်မယ့် 
                         ကျောင်းသား လူငယ်တွေအတွက် လမ်းမပျောက်စေရန် web development
@@ -116,7 +131,7 @@
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center px-3">Categories</h6>
-                <h1 class="mb-5" style="color: #fb873f;">Popular Topics to Explore</h1>
+                <h1 class="mb-5" style="color: var(--primary);">Popular Topics to Explore</h1>
             </div>
             <div class="row g-2 m-2">
                 @foreach($categories as $category)

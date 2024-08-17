@@ -16,9 +16,7 @@
             <div class="row g-4">
                 <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h5>Get In Touch</h5>
-                    <p class="mb-4">I'm happy to help! If you're looking for contact information or details about
-                       WebMentor’s online free courses website for e-learning, I don't have real-time browsing
-                        capabilities to access current websites or specific contact details.</p>
+                    <p class="mb-4"> learners များအနေနဲ့ WebMentor ကိုဆက်သွယ်အကြံပြုလိုလျှင် WebMentor ရဲ့  email address နှင် phone no ကိုတိုက်ရိုက်ဆက်သွယ်နိုင်သလို  contact form မှတစ်ဆင့် ဆက်သွယ်အကြံပြုနိုင်ပါတယ်ရှင့်💌</p>
                     <div class="d-flex align-items-center mb-3">
                         <div class="d-flex align-items-center justify-content-center flex-shrink-0"
                             style="width: 50px; height: 50px; background-color:var(--primary)">

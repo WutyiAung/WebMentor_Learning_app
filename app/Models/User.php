@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -21,6 +21,7 @@ class User extends Authenticatable
         'email',
         'password',
         'image',
+        'is_admin',
     ];
 
     /**
@@ -32,25 +33,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-   
-    public function enrollments()
-    {
-        return $this->belongsToMany(Course::class, 'enrollments')->withTimestamps();
-    }
-
-
-    public function courses()
-    {
-        return $this->belongsToMany(Course::class, 'enrollments');
-    }
-
-    public function hasRole($role)
-    {
-        return $this->role === $role;
-    }
 
     /**
-     * Get the attributes that should be cast.
+     * The attributes that should be cast.
      *
      * @return array<string, string>
      */
@@ -60,5 +45,40 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Boot the model.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($user) {
+            // Detach related enrollments
+            $user->enrollments()->detach();
+
+            // Optionally delete user image if needed
+            if ($user->image) {
+                $imagePath = parse_url($user->image, PHP_URL_PATH);
+                $imagePath = ltrim($imagePath, '/');
+                Storage::delete('public/' . $imagePath);
+            }
+        });
+    }
+
+    public function enrollments()
+    {
+        return $this->belongsToMany(Course::class, 'enrollments')->withTimestamps();
+    }
+
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class, 'enrollments');
+    }
+
+    public function hasRole($role)
+    {
+        return $this->is_admin === ($role === 'admin' ? 1 : 0);
     }
 }

@@ -1,4 +1,4 @@
-<x-header></x-header>
+<x-header/>
 <!-- Header Start -->
 <div class="container-fluid bg-primary py-5 mb-5 page-header">
     <div class="container py-5">
@@ -20,44 +20,81 @@
 <!-- About Start -->
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="row g-5">
+        <div class="row g-5" style="line-height: 2rem;">
 
             <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.3s">
                 <h6 class="section-title bg-white text-start pe-3">About Us</h6>
-                <h1 class="mb-4" style="color: #fb873f;">Welcome to WebMentor</h1>
-                <p class="mb-4">
-                    At WebMentor, we are dedicated to providing free, accessible web development education. Our mission is to offer high-quality resources and courses to help beginners in Burmese and beyond master the fundamentals of web development.
+                <h2 class="mb-4" style="color: var(--primary);">Welcome to WebMentor</h2>
+                <p class="mb-5">
+                    WebMentor online learning platform လေးက web development ကိုစိတ်ဝင်စားတဲ့မြန်မာလူငယ်​​တွေအတွက် လေ့လာသင်ယူရာမှာပိုမိုအဆင်ပြေရန်အတွက် online courses များစွာကို
+                    အခ​ကြေး​ငွေ ​ပေးစရာမလိုပဲမြန်မာလို အ​ခြေခံကစ၍​လေ့လာသင်ယူနိုင်​မယ့် learning website လေးတစ်ခုဖြစ်ပါတယ်။
                 </p>
-                <p class="mb-4">Our platform is designed to support your learning journey with comprehensive courses, practical exercises, and up-to-date resources tailored for aspiring web developers.</p>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-4 shadow-sm card-shadow-1">
+                            <div class="card-body">
+                                <h4 class="card-title"><i class="bi bi-eye icon-color"></i> Our Vision</h4>
+                                <p class="card-text">WebMentor Learning Platform ရဲ့ အဓိက ရည်ရွယ်ချက်ကတော့ web development career ကိုစတင်မယ့်မြန်မာကျောင်းသားလူငယ်တွေအတွက်
+                                    ပိုက်ဆံလည်းမကုန်၊ သင်တန်းလည်း သွားတက်စရာမလိုပဲ အိမ်မှာနေရင်း လေ့လာလို့ရမယ့် videos သင်ခန်းစာများစွာကို စုစည်းဖော်ပြပေးထားပြီး professional web developer တစ်ယောက်ဖြစ်ဖို့အတွက် လိုအပ်တဲ့ soft skills, hard skills  များကိုလေ့လာဖတ်ရှုနိုင်ရန် မြန်မာလို ရေးသားထားသော articles များစွာကိုဖော်ပြပေးထားတဲ့ learning platform တစ်ခုဖြစ်ပါတယ်။ 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
-                <h3 class="mb-4">Our Vision</h3>
-                <p class="mb-4">We envision a world where anyone interested in web development can access quality learning materials without financial barriers. Our goal is to create an inclusive and supportive environment for learners at all levels.</p>
+                    <div class="col-md-6">
+                        <div class="card mb-4 shadow-sm card-shadow-2">
+                            <div class="card-body">
+                                <h4 class="card-title"><i class="bi bi-lightbulb icon-color"></i> Empowering Beginners</h4>
+                                <p class="card-text">web development ကိုစတင်လေ့လာမယ့် Beginners  တွေအတွက် လေ့လာရလွယ်ကူစေရန် နှင့် လမ်းမပျောက်စေရန် learning guide တွေပေးပြီး step by step လေ့လာနိုင်ရန် Beginner friendly ဖြစ်တဲ့ resourses တွေ courses တွေကို မျှ၀ေပေးထားတဲ့ learning platform လေးတစ်ခုဖြစ်ပါတယ်။</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card mb-4 shadow-sm card-shadow-3">
+                            <div class="card-body">
+                                <h4 class="card-title"><i class="bi bi-file-earmark-text icon-color"></i> Blogs & Tricks</h4>
+                                <p class="card-text">ကျောင်းသားကျောင်းသူများအနေနဲ့ အရည်အသွေးကောင်းမွန်တဲ့ content တွေကိုဖတ်ရှုချင်တယ်ဆိုရင်တော့ WebMentor website ရဲ့ POST section မှာ၀င်ရောက်ဖတ်ရှုနိုင်ပါတယ်။</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <h3 class="mb-4">Commitment to Quality</h3>
-                <p class="mb-4">Our team is dedicated to curating and offering top-notch educational content. We work with experienced developers and educators to ensure that our materials are accurate, relevant, and valuable for our learners.</p>
+                    <div class="col-md-6">
+                        <div class="card mb-4 shadow-sm card-shadow-4">
+                            <div class="card-body">
+                                <h4 class="card-title"><i class="bi bi-people icon-color"></i> Community Focus</h4>
+                                <p class="card-text">WebMentor ဟာ learning platform တစ်ခုဖြစ်ရုံသာမက Myanmar Web developers တွေ  learners တွေ ကျောင်းသားတွေအတွက် အချင်းချင်း knowledge sharing လုပ်ခြင်းနှင့် မသိတဲ့စာတွေကိုမေးမြန်းဆွေးနွေခြင်းဖြင့် Myanamer Web Developer Community တစ်ခုဖြစ်လာစေရန်လဲရည်ရွယ်ပါတယ်။</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <h3 class="mb-4">Empowering Beginners</h3>
-                <p class="mb-4">We believe in empowering beginners with the skills and knowledge needed to succeed in web development. Our resources are designed to be beginner-friendly, providing clear instructions and practical examples.</p>
+                    <div class="col-md-6">
+                        <div class="card mb-4 shadow-sm card-shadow-5">
+                            <div class="card-body">
+                                <h4 class="card-title"><i class="bi bi-chat-square-text icon-color"></i> Honest Reviews</h4>
+                                <p class="card-text">learners တွေအနေနဲ့ ဒီ learning website လေးကိုအသုံးပြုနေစဉ် အခက်အခဲရှိခဲ့လျင်သော်လည်းကောင်း အကြံပြုလိုလျင်သော်လည်းကောင်း သင်ယူလေ့လာမှုပိုမိုအဆင်ပြေစေရန် WebMentor  ရဲ့ comments and reviews section မှာ အကြံပြုနိုင်သလို contact form ရဲ့ direct message မှတဆင့် ဆက်သွယ်အကြံပြုနိုင်ပါတယ်။</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <h3 class="mb-4">Innovative Learning</h3>
-                <p class="mb-4">Our approach incorporates modern learning methods and tools. From interactive tutorials to hands-on projects, we aim to engage and support learners in their journey to becoming proficient web developers.</p>
+                    <div class="col-md-6">
+                        <div class="card mb-4 shadow-sm card-shadow-6">
+                            <div class="card-body">
+                                <h4 class="card-title"><i class="bi bi-envelope icon-color"></i> Subscription & Newsletter</h4>
+                                <p class="card-text">ဒါကတော့ WebMentor website မှာတင်သမျှကို အချိန်နှင်တပြေးညီသိလို သူတွေအတွက် website လေးကို subscribe လုပ်ထားခြင်းဖြင့် တင်သမျှအကြောင်းအရာကို email မှတဆင့် notification ရရှိမှာပဲဖြစ်ပါတယ်။</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <h3 class="mb-4">Community Focus</h3>
-                <p class="mb-4">WebMentor is not just about courses; it's about building a community. We encourage interaction and collaboration among learners, providing a platform for sharing knowledge and experiences.</p>
-
-                <h3 class="mb-4">Diverse Resources</h3>
-                <p class="mb-4">Our content covers a wide range of web development topics, catering to various interests and skill levels. We celebrate diversity in learning and strive to offer resources that meet the needs of a broad audience.</p>
-
-                <h3 class="mb-4">Continuous Improvement</h3>
-                <p class="mb-4">We are committed to continually enhancing our platform based on feedback from our users. Your input helps us improve and ensure that we provide the best possible learning experience.</p>
-
-                <p class="mt-5 mb-4">Thank you for being a part of WebMentor. Join us as we embark on a journey of learning and growth in the exciting field of web development.</p>
-
+                <p class="mb-3 final-note">ဒီလို လွယ်လွယ်ကူကူနဲ့လေ့လာနိုင်တဲ့ learning platform မှာ Free courses တွေကိုသင်ယူလေ့လာချင်တယ်ဆိုရင်တော့ အခုပဲ register လုပ်ပြီးအခမဲ့ ၀င်ရောက်လေ့လာနိုင်ပါတယ်။ <span class="emoji">👀</span></p>
+                <p class="final-note">ကျောင်းသားတို့ရဲ့ web development လေ့လာတဲ့ခရီးစဉ်မှာ တစ်ထောင့်တစ်နေရာကနေကူညီခွင့်ရတဲ့အတွက်အထူးပဲကျေးဇူးတင်ရှိပါတယ်ရှင့်<span class="emoji">💖</span></p>
+                
             </div>
 
         </div>
     </div>
 </div>
 <!-- About End -->
-
 <x-footer/>

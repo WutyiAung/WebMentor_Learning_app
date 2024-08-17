@@ -6,10 +6,13 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\IsStudent;
 use App\Models\BlogCategory;
 use Illuminate\Support\Facades\Route;
@@ -59,13 +62,12 @@ require __DIR__.'/auth.php';
 // show courses
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+Route::prefix('admin')->group(function () {
     Route::resource('courses', CourseController::class);
-  // Categories CRUD routes
     Route::resource('categories', CategoryController::class);
-
     Route::resource('blogs',BlogController::class);
 })->middleware(AdminMiddleware::class);
+
 
 
 
@@ -104,6 +106,17 @@ Route::delete('replies/{reply}', [CommentController::class, 'destroyReply'])->na
 
 // mail
 Route::post('/send-message', [ContactController::class, 'send'])->name('contact.send');
+// User
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
+Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
-// Routes for Course Comments
+Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe');
+
+// In your routes/web.php
+Route::post('/courses/{course}/unenroll', [EnrollmentController::class, 'unenroll'])->name('courses.unenroll');
 

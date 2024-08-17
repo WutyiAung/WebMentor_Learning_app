@@ -15,6 +15,9 @@ class Enrollment extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Get the course that the user is enrolled in.
+     */
     public function course()
     {
         return $this->belongsTo(Course::class);
