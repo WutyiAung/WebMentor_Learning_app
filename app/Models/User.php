@@ -81,4 +81,9 @@ class User extends Authenticatable
     {
         return $this->is_admin === ($role === 'admin' ? 1 : 0);
     }
+
+    public function progress()
+    {
+        return $this->hasMany(CourseProgress::class);
+    }
 }

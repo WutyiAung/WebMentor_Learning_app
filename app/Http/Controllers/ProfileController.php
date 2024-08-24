@@ -20,7 +20,7 @@ class ProfileController extends Controller
         $user = auth()->user();
         $courses = null;
         if(!$user->is_admin){
-            $courses = $user->courses;
+            $courses = $user->courses()->with('progress')->get();
         }
         return view('profile.edit', [
             'user' => $request->user(),

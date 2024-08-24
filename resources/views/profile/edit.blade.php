@@ -23,7 +23,7 @@
                             </div>
                             <h3 class="card-title text-blue-600 mb-4">Your Enrollments</h3>
                             <p class="text-muted mb-4">Check your course enrollments and progress.</p>
-
+                
                             <!-- Check if there are courses -->
                             @if ($courses && count($courses) > 0)
                                 <div class="row">
@@ -32,14 +32,15 @@
                                             <div class="card border-light h-100">
                                                 <div class="card-body d-flex align-items-center justify-content-between">
                                                     <div>
-                                                        <h5 class="card-title font-weight-bold">{{ $course['title'] ?? 'No Title' }}</h5>
-                                                        <p class="card-text text-muted">{{ Str::limit($course['description'] ?? 'No Description available.', 100) }}</p>
+                                                        <h5 class="card-title font-weight-bold">{{ $course->title ?? 'No Title' }}</h5>
+                                                        <p class="card-text text-muted">{{ Str::limit($course->description ?? 'No Description available.', 100) }}</p>
                                                         <small class="text-muted">
-                                                            Enrolled on: {{ \Carbon\Carbon::parse($course['enrollment_time'] ?? now())->format('M d, Y') }}
+                                                            Enrolled on: {{ \Carbon\Carbon::parse($course->pivot->enrollment_time ?? now())->format('M d, Y') }}
                                                         </small>
+                                                       
                                                     </div>
                                                     <div>
-                                                        <a href="{{ route('courses.showDetails', $course['id'] ?? '#') }}" class="btn btn-primary d-flex align-items-center">
+                                                        <a href="{{ route('courses.showDetails', $course->id ?? '#') }}" class="btn btn-primary d-flex align-items-center">
                                                             <i class="fas fa-info-circle mr-2"></i> View Details
                                                         </a>
                                                     </div>
@@ -53,7 +54,8 @@
                             @endif
                         </div>
                     </div>
-                @endif
+                 @endif
+            
 
                 <!-- Delete User Form -->
                 <div class="card border-light">
@@ -72,61 +74,16 @@
 </x-app-layout>
 
 <style>
-    .card {
-        border: 1px solid #e5e7eb;
-        border-radius: 0.375rem;
-        box-shadow: none;
-    }
-    
-    .card-title {
-        font-size: 1.5rem;
-        font-weight: bold;
+    .progress {
+        height: 1.5rem;
+        background-color: #e9ecef;
     }
 
-    .text-green-600 {
-        color: #16a34a;
-    }
-    .text-blue-600 {
-        color: #3b82f6;
-    }
-    .text-red-600 {
-        color: #ef4444;
-    }
-
-    .text-muted {
-        font-size: 0.875rem;
-        color: #6c757d;
-    }
-
-    .btn-primary {
+    .progress-bar {
+        height: 100%;
         background-color: #3b82f6;
-        border: none;
-        padding: 0.75rem 1.25rem;
-        border-radius: 0.375rem;
-        display: inline-flex;
-        align-items: center;
-        transition: background-color 0.3s;
-    }
-
-    .btn-primary:hover {
-        background-color: #2563eb;
-    }
-
-    .btn-primary i {
-        margin-right: 0.5rem;
-    }
-
-    input[type="text"], input[type="email"], input[type="password"], input[type="file"] {
-        border: 2px solid #d1d5db;
-        border-radius: 0.375rem;
-        padding: 0.5rem;
-        background-color: #f9fafb;
-        color: #1f2937;
-    }
-
-    input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
-        border-color: #3b82f6;
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+        color: #fff;
+        text-align: center;
+        line-height: 1.5rem;
     }
 </style>

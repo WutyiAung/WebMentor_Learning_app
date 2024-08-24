@@ -1,9 +1,7 @@
 <!-- resources/views/blogs/edit.blade.php -->
-
 <x-admin-layout>
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Edit Blog</h1>
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-edit me-1"></i>

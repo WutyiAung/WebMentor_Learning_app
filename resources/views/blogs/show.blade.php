@@ -2,8 +2,7 @@
 <x-admin-layout>
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Blog Details</h1>
-            <div class="card mb-4">
+            <div class="card mb-4 mt-2">
                 <div class="card-header">
                     <i class="fas fa-eye me-1"></i>
                     Blog Details

@@ -1,4 +1,3 @@
-<!-- resources/views/dashboard.blade.php -->
 <x-admin-layout>
     <main>
         <div class="container-fluid px-4">
@@ -10,7 +9,7 @@
             <div class="row g-4" style="margin-left:5rem">
                 <!-- Total Courses Section -->
                 <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card shadow-sm border-light bg-lightblue">
+                    <div class="card shadow-lg border-0 bg-gradient">
                         <div class="card-body d-flex align-items-center">
                             <div class="me-3 icon-container">
                                 <i class="fas fa-book fa-2x text-primary"></i>
@@ -20,136 +19,148 @@
                                 <p class="card-text fs-4">{{ $totalCourses }}</p>
                             </div>
                         </div>
-                        <div class="card-footer d-flex justify-content-between bg-light border-top border-dark">
-                            <a class="btn btn-sm btn-lightblue" href="{{ route('courses.index') }}">View Courses</a>
-                            <a class="btn btn-sm btn-lightblue" href="{{ route('courses.create') }}">Create Course</a>
+                        <div class="card-footer d-flex justify-content-between bg-gradient border-top-0">
+                            <a class="btn btn-sm btn-primary" href="{{ route('courses.index') }}">View</a>
+                            <a class="btn btn-sm btn-primary" href="{{ route('courses.create') }}">Create</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Total Users Section -->
                 <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card shadow-sm border-light bg-lightblue">
+                    <div class="card shadow-lg border-0 bg-gradient">
                         <div class="card-body d-flex align-items-center">
                             <div class="me-3 icon-container">
-                                <i class="fas fa-users fa-2x text-info"></i>
+                                <i class="fas fa-users fa-2x text-primary"></i>
                             </div>
                             <div>
                                 <h5 class="card-title mb-1">Total Users</h5>
                                 <p class="card-text fs-4">{{ $totalUsers }}</p>
                             </div>
                         </div>
-                        <div class="card-footer d-flex justify-content-between bg-light border-top border-dark">
-                            <a class="btn btn-sm btn-lightblue" href="{{ route('users.index') }}">View Users</a>
+                        <div class="card-footer d-flex justify-content-between bg-gradient border-top-0">
+                            <a class="btn btn-sm btn-primary" href="{{ route('users.index') }}">View</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Total Blogs Section -->
                 <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card shadow-sm border-light bg-lightblue">
+                    <div class="card shadow-lg border-0 bg-gradient">
                         <div class="card-body d-flex align-items-center">
                             <div class="me-3 icon-container">
-                                <i class="fas fa-blog fa-2x text-success"></i>
+                                <i class="fas fa-blog fa-2x text-primary"></i>
                             </div>
                             <div>
                                 <h5 class="card-title mb-1">Total Blogs</h5>
                                 <p class="card-text fs-4">{{ $totalBlogs }}</p>
                             </div>
                         </div>
-                        <div class="card-footer d-flex justify-content-between bg-light border-top border-dark">
-                            <a class="btn btn-sm btn-lightblue" href="{{ route('blogs.index') }}">View Blogs</a>
-                            <a class="btn btn-sm btn-lightblue" href="{{ route('blogs.create') }}">Create Blog</a>
+                        <div class="card-footer d-flex justify-content-between bg-gradient border-top-0">
+                            <a class="btn btn-sm btn-primary" href="{{ route('blogs.index') }}">View</a>
+                            <a class="btn btn-sm btn-primary" href="{{ route('blogs.create') }}">Create</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Total Categories Section -->
                 <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card shadow-sm border-light bg-lightblue">
+                    <div class="card shadow-lg border-0 bg-gradient">
                         <div class="card-body d-flex align-items-center">
                             <div class="me-3 icon-container">
-                                <i class="fas fa-tags fa-2x text-warning"></i>
+                                <i class="fas fa-tags fa-2x text-primary"></i>
                             </div>
                             <div>
                                 <h5 class="card-title mb-1">Total Categories</h5>
                                 <p class="card-text fs-4">{{ $totalCategories }}</p>
                             </div>
                         </div>
-                        <div class="card-footer d-flex justify-content-between bg-light border-top border-dark">
-                            <a class="btn btn-sm btn-lightblue" href="{{ route('categories.index') }}">View Categories</a>
-                            <a class="btn btn-sm btn-lightblue" href="{{ route('categories.create') }}">Create Category</a>
+                        <div class="card-footer d-flex justify-content-between bg-gradient border-top-0">
+                            <a class="btn btn-sm btn-primary" href="{{ route('categories.index') }}">View</a>
+                            <a class="btn btn-sm btn-primary" href="{{ route('categories.create') }}">Create</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- User Growth Chart -->
-                <div class="col-xl-6 col-md-12 mb-4">
-                    <div class="card shadow-sm border-light bg-lightblue">
-                        <div class="card-header">
+                {{-- <div class="col-xl-6 col-md-12 mb-4">
+                    <div class="card shadow-lg border-0 bg-gradient">
+                        <div class="card-header bg-primary text-white">
                             User Growth
                         </div>
                         <div class="card-body">
                             <canvas id="userGrowthChart"></canvas>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Enroll Growth Chart -->
-                <div class="col-xl-6 col-md-12 mb-4">
-                    <div class="card shadow-sm border-light bg-lightblue">
-                        <div class="card-header">
+                {{-- <div class="col-xl-6 col-md-12 mb-4">
+                    <div class="card shadow-lg border-0 bg-gradient">
+                        <div class="card-header bg-primary text-white">
                             Enroll Growth
                         </div>
                         <div class="card-body">
                             <canvas id="enrollGrowthChart"></canvas>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </main>
     <style>
-        .btn-lightblue {
-            background-color: rgb(210, 216, 241);
-            color: #000; /* Set text color to black for better contrast */
-        }
-
         .card {
-            border-radius: 10px; /* Rounded corners for the card */
-            overflow: hidden; /* Ensure child elements don't overflow */
-            margin-left: 1.5rem; /* Add margin to the left of all cards */
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%; /* Ensure the card takes full width of its container */
         }
 
-        .card.bg-lightblue {
-            background-color: rgb(210, 216, 241); /* Light blue background color for cards */
+        .card.bg-gradient {
+            background: linear-gradient(135deg, rgba(210, 216, 241, 0.9), rgba(255, 255, 255, 0.8));
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            padding: 0.25rem 1rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            border-radius: 12px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            color: #fff;
         }
 
         .icon-container {
-            background: rgba(173, 216, 230, 0.5); /* Light blue fade color */
-            border-radius: 50%; /* Circular background for icons */
-            padding: 15px; /* Add space around the icon */
+            background: rgba(173, 216, 230, 0.5);
+            border-radius: 50%;
+            padding: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .card-body .fa-2x {
-            font-size: 2rem; /* Adjust icon size */
+            font-size: 2.5rem;
         }
 
         .card-footer {
-            border-top: 1px solid #ddd;
+            border-top: none;
         }
 
-        /* Add gap between cards */
         .row.g-4 {
-            gap: 1.5rem; /* Adjust gap size as needed */
+            gap: 2rem;
         }
 
-        /* Chart container styling */
         .card-header {
             font-weight: bold;
+            text-transform: uppercase;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

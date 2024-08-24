@@ -47,4 +47,9 @@ class Course extends Model
         return $this->enrollments()->where('user_id', $user->id)->exists();
     }
 
+    public function progress()
+    {
+        return $this->hasOne(CourseProgress::class, 'course_id');
+    }
+
 }

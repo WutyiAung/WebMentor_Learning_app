@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('subscriptions', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        Schema::table('enrollments', function (Blueprint $table) {
+            $table->integer('progress')->default(0); // Store progress as a percentage
         });
     }
 
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('subscriptions', function (Blueprint $table) {
+        Schema::table('enrollments', function (Blueprint $table) {
             //
         });
     }
