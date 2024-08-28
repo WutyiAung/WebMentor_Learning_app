@@ -10,6 +10,7 @@ class ContactController extends Controller
 {
     public function send(Request $request)
     {
+        
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -25,6 +26,7 @@ class ContactController extends Controller
         ];
 
         Mail::to('harleyqueen150@gmail.com')->queue(new ContactMail($details));
+     
 
         return back()->with('success', 'Your message has been sent successfully!');
     }
