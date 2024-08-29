@@ -92,38 +92,16 @@
                             </div>
                             <div>
                                 <h5 class="card-title mb-1">Total Enrollments</h5>
+                                <p class="card-text fs-4">{{ $totalEnrollments }}</p>
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-between border-top-0">
-                            <a class="btn btn-sm btn-primary" >View</a>
-                            <a class="btn btn-sm btn-primary">Create</a>
+                            <a href="{{ route('enrollments.index') }}" class="btn btn-sm btn-primary">View</a>
+                            <a href="{{ route('enrollments.create') }}" class="btn btn-sm btn-primary">Create</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- User Growth Chart (Commented Out) -->
-                {{-- <div class="col-xl-6 col-md-12 mb-4">
-                    <div class="card shadow-lg border-0 bg-gradient">
-                        <div class="card-header bg-primary text-white">
-                            User Growth
-                        </div>
-                        <div class="card-body">
-                            <canvas id="userGrowthChart"></canvas>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <!-- Enroll Growth Chart (Commented Out) -->
-                {{-- <div class="col-xl-6 col-md-12 mb-4">
-                    <div class="card shadow-lg border-0 bg-gradient">
-                        <div class="card-header bg-primary text-white">
-                            Enroll Growth
-                        </div>
-                        <div class="card-body">
-                            <canvas id="enrollGrowthChart"></canvas>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </main>

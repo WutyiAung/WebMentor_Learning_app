@@ -121,3 +121,5 @@ Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subsc
 Route::post('/courses/{course}/unenroll', [EnrollmentController::class, 'unenroll'])->name('courses.unenroll');
 Route::post('/courses/{course}/progress', [CourseController::class, 'updateProgress'])->name('courses.progress');
 
+Route::resource('enrollments', EnrollmentController::class);
+
